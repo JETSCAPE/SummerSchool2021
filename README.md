@@ -21,20 +21,28 @@ In what follows we assume such a directory at `~/jetscape-docker`. You may decid
 but if so **please be careful to substitute your directory name appropriately in the remainder of the instructions**.
 
 Then download several pieces of software from git:
-```
+```bash
 git clone https://github.com/JETSCAPE/JETSCAPE.git
 git clone https://github.com/JETSCAPE/SummerSchool2021.git
 git clone https://github.com/jdmulligan/JETSCAPE-analysis.git
+git clone https://github.com/JETSCAPE/STAT.git
 ```
 
 Additionally, download a few external physics packages:
-```
+```bash
 cd JETSCAPE/external_packages
 ./get_music.sh
 ./get_iSS.sh
 ./get_freestream-milne.sh
 ./get_lbtTab.sh
 ```
+
+Then switch to the correct summer school branch for the software
+````bash
+(cd STAT && git checkout JetScapeSummerSchool2021)
+````
+(Note for people testing the instructions: this branch does not exist yet!)
+
 
 ## (2) Install docker
 
