@@ -88,18 +88,18 @@ Create and start the docker container that contains all of the JETSCAPE pre-reqs
 
 **macOS:**
 ```bash
-docker run -it -v ~/jetscape-docker:/home/jetscape-user --name myJetscape jetscape/base:v1.4
+docker run -it -v ~/jetscape-docker:/home/jetscape-user --name myJetscape -p 8888:8888 jetscape/base:v1.4
 ```
 
 **linux:**
 ```bash
-docker run -it -v ~/jetscape-docker:/home/jetscape-user --name myJetscape --user $(id -u):$(id -g) jetscape/base:v1.4
+docker run -it -v ~/jetscape-docker:/home/jetscape-user --name myJetscape -p 8888:8888 --user $(id -u):$(id -g) jetscape/base:v1.4
 ```
 
 **windows:**
 For example open a Windows command window using the 'cmd' command then:
 ```bash
-docker run -it -v <fullpath>/jetscape-docker:/home/jetscape-user --name myJetscape jetscape/base:v1.4
+docker run -it -v <fullpath>/jetscape-docker:/home/jetscape-user --name myJetscape -p 8888:8888 jetscape/base:v1.4
 ```
 where `<fullpath>` would be c:\users\...\documents\ or wherever the `jetscape-docker` folder was placed.
 
@@ -164,3 +164,25 @@ This is done most easily directly from your laptop (i.e. not via docker).
 Therefore, you should make sure you have a working installation of ROOT on your laptop:
 https://root.cern/install/. It is typically easiest to install ROOT via one of the package managers (for macOS
 and linux), conda, or else from the pre-compiled binaries.
+
+
+## (5) Test open jupyter notebook through docker
+
+When inside docker container, run
+````bash
+jupyter-notebook --ip 0.0.0.0 --no-browser
+````
+
+There will be some printouts, and at the end there will be a URL like
+
+````
+http://127.0.0.1:8888/?token=....
+````
+
+Copy the full address (including the token) into a web browser, and verify that you can see a jupyter notebook page with directories.
+
+
+
+
+
+
