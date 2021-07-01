@@ -181,7 +181,11 @@ http://127.0.0.1:8888/?token=....
 
 Copy the full address (including the token) into a web browser, and verify that you can see a jupyter notebook page with directories.
 
+If you are working on a remote machine, we need to forward the correct port, for example
 
+````bash
+ssh -L 8888:127.0.0.1:8888 XXX@XXX.XX
+````
 
 
 
