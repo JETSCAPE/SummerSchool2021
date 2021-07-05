@@ -174,9 +174,18 @@ https://root.cern/install/. It is typically easiest to install ROOT via one of t
 and linux), conda, or else from the pre-compiled binaries.
 
 
-## (5) Test open jupyter notebook through docker
+## (5) Install some missing python packages and test open jupyter notebook through docker
 
-When inside docker container, run
+Inside docker container, run
+```bash
+pip3 install corner pyDOE
+pip3 install --upgrade emcee==3.0.2
+```
+to install some extra python packages needed for the Bayesian part of the school.  The above only needs be done once.
+
+Then...let's try opening the jupyter notebook.
+
+Again when inside docker container, run
 ````bash
 jupyter-notebook --ip 0.0.0.0 --no-browser
 ````
