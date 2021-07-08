@@ -28,6 +28,14 @@ git clone https://github.com/jdmulligan/JETSCAPE-analysis.git
 git clone https://github.com/JETSCAPE/STAT.git
 ```
 
+Then switch to the correct summer school branch for the software
+````bash
+(cd STAT && git checkout JetScapeSummerSchool2021)
+````
+(Note for people testing the instructions: this branch does not exist yet!  Will be pushed soon)
+
+
+
 Additionally, download a few external physics packages:
 ```bash
 cd JETSCAPE/external_packages
@@ -36,12 +44,6 @@ cd JETSCAPE/external_packages
 ./get_freestream-milne.sh
 ./get_lbtTab.sh
 ```
-
-Then switch to the correct summer school branch for the software
-````bash
-(cd STAT && git checkout JetScapeSummerSchool2021)
-````
-(Note for people testing the instructions: this branch does not exist yet!)
 
 
 ## (2) Install docker
