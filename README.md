@@ -113,6 +113,7 @@ This is what the `docker run` command does:
 - `-v` mounts a shared folder between your machine (at ~/jetscape-docker) and the container (at /home/jetscape-user), through which you can transfer files to and from the container. You can edit the location of the folder on your machine as you like.
 - `--name` (optional) sets a name for your container, for convenience. Edit it as you like.
 - `--user $(id -u):$(id -g)` (only needed on linux) runs the docker container with the same user permissions as the current user on your machine (since docker uses the same kernel as your host machine, the UIDs are shared). Note that the prompt will display "I have no name!", which is normal.
+- `-p 8888:8888` forwards port 8888 from inside the container to outside.
 
 Some useful commands:
 - To see the containers you have running, and get their ID: `docker container ls` (`-a` to see also stopped containers)
