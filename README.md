@@ -24,7 +24,6 @@ Then download several pieces of software from git:
 ```bash
 git clone https://github.com/JETSCAPE/JETSCAPE.git
 git clone https://github.com/JETSCAPE/SummerSchool2021.git
-git clone https://github.com/jdmulligan/JETSCAPE-analysis.git
 git clone https://github.com/JETSCAPE/STAT.git
 
 ```
