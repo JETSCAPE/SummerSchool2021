@@ -1,16 +1,17 @@
-# QGP_Bayes
-### Bayesian parameter estimation code for Relativistic Heavy Ion Collisions
+# July 29 JETSCAPE Bayesian Example.
+## Relevent Notebook
+### BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb
 
 1. Clone the repository inside the JETSCAPE docker container.
->git clone -b JS21 https://github.com/danOSU/QGP_Bayes.git
+>git clone https://github.com/JETSCAPE/SummerSchool2021.git
 
-# Posteriors using this *[Jupyter Notebook](https://github.com/danOSU/QGP_Bayes/blob/main/Bayesian%20Parameter%20Estimation%20for%20Relativistic%20Heavy%20Ion%20Physics.ipynb)*
+# Posteriors using this *[Jupyter Notebook](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*
 > Posterior for temperature dependent QGP specefic Shear viscosity.
-![alt text](https://github.com/danOSU/QGP_Bayes/blob/JS21/Results/FigureFiles/shear_pos_ptemcee.png)
+![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/shear_posterior.png)
 
 > Posterior for temperature dependent QGP specefic Bulk viscosity.
-![alt text](https://github.com/danOSU/QGP_Bayes/blob/JS21/Results/FigureFiles/bulk_pos_ptemcee.png)
+![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/bulk_posterior.png)
 
 > Posterior for remaining parameters in the model.
-![alt text](https://github.com/danOSU/QGP_Bayes/blob/JS21/Results/FigureFiles/JETSCAPE_bayespartial.png)
+![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/JETSCAPE_bayesWithoutViscosity.png)
 
