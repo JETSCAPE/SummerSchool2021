@@ -1,6 +1,6 @@
 # Preparation for the 2021 JETSCAPE School
 
-Please carefully complete **all** of the below instructions **Before the start of the school**.
+Please carefully complete **all** of the below instructions **by Friday July 16th**.
 
 Due to a large number of participants and the online format, we will have limited capacity to address 
 personal software installation questions during the school — it is therefore imperative to **carefully**
