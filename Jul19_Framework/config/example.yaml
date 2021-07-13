@@ -8,7 +8,7 @@ parameter_scan:
   # pthat bins are required, and should come first
   pt_hat_bins:
     label: 'pt_hat_bins'
-    values: [10, 20, 30, 40, 50, 70, 100, 150, 200, 1000]
+    values: [100, 150, 200]
 
 #------------------------------------------------------------------
 # Generation parameters
@@ -19,10 +19,10 @@ xml_master_file: '/home/jetscape-user/JETSCAPE/config/jetscape_master.xml'
 # Analysis parameters -- nothing below affects the generation stage
 
 # Required parameters
-n_event_max: 500
+n_event_max: 100
 progress_bar: True
-scale_histograms: True
-merge_histograms: True
+scale_histograms: False
+merge_histograms: False
 
 # User-defined parameters
 min_track_pt: 0.01       # Used for both hadron and jet histograms
