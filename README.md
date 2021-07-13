@@ -62,7 +62,7 @@ or in the docker container, as appropriate &mdash; otherwise it will not work.
 #### macOS
 
 1. Install Docker Desktop for Mac: https://docs.docker.com/docker-for-mac/install/
-2. Open Docker, go to Preferences --> Advanced and 
+2. Open Docker, go to Preferences --> Resources and 
     1. Set CPUs to one less than the max that your computer has (`sysctl -n hw.ncpu`),
     2. Set memory to what you are willing to give Docker (I use 12 out of 16 GB). It should always be a few GB
        less than the size of you memory.
