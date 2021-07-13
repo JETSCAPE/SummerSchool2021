@@ -2,6 +2,8 @@
 
 Please carefully complete **all** of the below instructions **by Friday July 16th**.
 
+In case of problems please head to the slack (you can find the link on the indico page) and ask in the `software-install-problems` channel.
+
 Due to a large number of participants and the online format, we will have limited capacity to address 
 personal software installation questions during the school — it is therefore imperative to **carefully**
 complete the below steps in advance of the school.
