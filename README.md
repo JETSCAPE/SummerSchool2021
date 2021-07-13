@@ -26,7 +26,6 @@ git clone https://github.com/JETSCAPE/JETSCAPE.git
 git clone https://github.com/JETSCAPE/SummerSchool2021.git
 git clone https://github.com/jdmulligan/JETSCAPE-analysis.git
 git clone https://github.com/JETSCAPE/STAT.git
-git clone -b JS21 https://github.com/danOSU/QGP_Bayes.git
 
 ```
 
