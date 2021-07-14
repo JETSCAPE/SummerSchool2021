@@ -1,5 +1,26 @@
 # July 29 JETSCAPE Bayesian Example.
 ## Relevent Notebook
+
+### SimpleGaussianProcess.ipynb and BayesForSimpleModel.ipynb
+1. Clone the repository inside the JETSCAPE docker container.
+>git clone https://github.com/JETSCAPE/SummerSchool2021.git
+
+Run `jupyter notebook`
+
+2. Open *[SimpleGaussianProcess.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleGaussianProcess.ipynb)*. In this exercises, we will introduce the idea of a Gaussian Process emulator (GP). It will be an essential ingredient for the Bayesian analysis of complex model. We will spend about 30 mins on this topic.
+
+
+
+3. Open *[BayesForSimpleModel.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesForSimpleModel.ipynb)*. In this exercises, we will apply the emulator-assisted Bayesian analysis to a toy model of bulk physics. Assuming a simple response of anisotropy flow $v_2$ to the initial QGP eccentricity and an effective shear-viscosity, we will see the role of model sensitivity, uncertainty propagation, and parameter maginalization on the extraction of the temperature dependent shear viscosity. This example is also a warm-up for the following full example.
+
+> Sample results: prior and posterior for temperature dependent QGP specefic Shear viscosity using a **toy model** with **peseudo experimental data**.
+<p>
+<img src="https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleBulk/plots/Posterior_validation.png" width="300" />
+
+<img src="https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleBulk/plots/Posterior_of_eta_s.png" width="300"  />
+ </p>
+
+
 ### BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb
 
 1. Clone the repository inside the JETSCAPE docker container.
