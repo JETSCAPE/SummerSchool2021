@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<jetscape>
+    <!-- General settings -->
+    <nEvents> 10 </nEvents>
+    <setReuseHydro> true </setReuseHydro>
+    <nReuseHydro> 10 </nReuseHydro>
+    <JetScapeWriterAscii> on </JetScapeWriterAscii>
+
+    <Random>
+        <seed>0</seed>
+    </Random>
+
+    <!-- Inital State Module  -->
+    <IS>
+        <!-- set boost invariant simulation -->
+        <grid_max_z> 0.0 </grid_max_z>
+
+        <!-- Initial condition -->
+        <Trento>
+            <PhysicsInputs  projectile='Pb'
+                    target='Pb'
+                    sqrts='5020'
+                    cross-section='6.7'
+                    normalization='18.4'>
+            </PhysicsInputs>
+            <CutInputs  centrality-low='20'
+                  centrality-high='30'>
+            </CutInputs>
+        </Trento>
+    </IS>
+
+    <!--Preequilibrium Dynamics Module -->
+    <Preequilibrium>
+        <NullPreDynamics> </NullPreDynamics>
+    </Preequilibrium>
+
+    <!-- Hydro  Module  -->
+    <Hydro>
+        <MUSIC>
+            <name>MUSIC</name>
+            <shear_viscosity_eta_over_s>0.15</shear_viscosity_eta_over_s>
+            <freezeout_temperature>0.150</freezeout_temperature>
+        </MUSIC>
+    </Hydro>
+
+    <!-- Particlization Module  -->
+    <SoftParticlization>
+        <iSS> </iSS>
+    </SoftParticlization>
+</jetscape>
