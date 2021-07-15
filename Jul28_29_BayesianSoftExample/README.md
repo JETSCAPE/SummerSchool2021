@@ -1,4 +1,4 @@
-# July 29 JETSCAPE Bayesian Example.
+# July 28 JETSCAPE Bayesian Example.
 ## Relevent Notebook
 
 ### SimpleGaussianProcess.ipynb and BayesForSimpleModel.ipynb
@@ -20,17 +20,24 @@ Run `jupyter notebook`
 <img src="https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleBulk/plots/Posterior_of_eta_s.png" width="300"  />
  </p>
 
+# July 29 1 hour JETSCAPE Bayesian Example.
+## Relevent Notebook
+
 
 ### BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb
 
 1. Clone the repository inside the JETSCAPE docker container.
 >git clone https://github.com/JETSCAPE/SummerSchool2021.git
 
-# Posteriors using this *[Jupyter Notebook](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*
-> Posterior for temperature dependent QGP specefic Shear viscosity.
+Run `jupyter notebook`
+
+Open *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*.In this session we will do a full Bayesian parameter extraction for one of the JETSCAPE relativistic heavy ion collision models using pre-generated simulation data and with **peseudo experimental data**. The peseudo experimental data is generated from our simulation model for known set of model parameters. We will compare the extracted model parameter values with the **true model parameters** to validate the Baysian work flow. After validation the final step would be the Bayesian parameter extraction with the real experimental data. We leave it as an exercise for the interested participants. 
+
+> Posteriors using the *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*
+> Posterior for temperature dependent specefic Shear viscosity.
 ![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/shear_posterior.png)
 
-> Posterior for temperature dependent QGP specefic Bulk viscosity.
+> Posterior for temperature dependent specefic Bulk viscosity.
 ![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/bulk_posterior.png)
 
 > Posterior for remaining parameters in the model.
