@@ -31,14 +31,20 @@ Run `jupyter notebook`
 
 Run `jupyter notebook`
 
-Open *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*.In this session we will do a full Bayesian parameter extraction for one of the JETSCAPE relativistic heavy ion collision models using pre-generated simulation data and with **peseudo experimental data**. The peseudo experimental data is generated from our simulation model for known set of model parameters. We will compare the extracted model parameter values with the **true model parameters** to validate the Baysian work flow. After validation the final step would be the Bayesian parameter extraction with the real experimental data. We leave it as an exercise for the interested participants. 
+Open *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*. In this session we will do a full Bayesian parameter extraction for one of the JETSCAPE relativistic heavy ion collision models using pre-generated simulation data and with **peseudo experimental data**. The peseudo experimental data is generated from our simulation model for known set of model parameters. We will compare the extracted model parameter values with the **true model parameters** to validate the Baysian work flow. After validation the final step would be the Bayesian parameter extraction with the real experimental data. We leave it as an exercise for the interested participants. 
 
-> Posteriors using the *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*
+#### Posteriors using the *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*
+
+
 > Posterior for temperature dependent specefic Shear viscosity.
 ![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/shear_posterior.png)
 
+
+
 > Posterior for temperature dependent specefic Bulk viscosity.
 ![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/bulk_posterior.png)
+
+
 
 > Posterior for remaining parameters in the model.
 ![alt text](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/Results/FigureFiles/JETSCAPE_bayesWithoutViscosity.png)
