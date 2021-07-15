@@ -20,7 +20,7 @@ Run `jupyter notebook`
 <img src="https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleBulk/plots/Posterior_of_eta_s.png" width="300"  />
  </p>
 
-# July 29 1 hour JETSCAPE Bayesian Example.
+# July 29 (1 hour) JETSCAPE Bayesian Example.
 ## Relevent Notebook
 
 
