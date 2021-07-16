@@ -6,10 +6,10 @@
  - Understand SMASH outputs: particles and collision history
  - Physics project: Life and death of rho-resonance
 
-To begin add your name to the [table](https://docs.google.com/spreadsheets/d/e/2PACX-1vTo_TeWIkXPCh4PBpLBNZac_pkB6pao6ynenWf2RNMZDHjeT4O1Mg3xBPx6nkitxthQq7GRothvNjCC/pubhtml) to mark your progress.
+**To begin** add your name to the [table](https://docs.google.com/spreadsheets/d/e/2PACX-1vTo_TeWIkXPCh4PBpLBNZac_pkB6pao6ynenWf2RNMZDHjeT4O1Mg3xBPx6nkitxthQq7GRothvNjCC/pubhtml) to mark your progress.
 Then follow the steps below.
 
-It would be great if you perform step 1. in advance,
+It would be great if you **perform step 1. in advance**,
 because compilation of SMASH library takes around 5 minutes, compilation
 of JetScape with SMASH takes around 7 minutes, running and getting 10 events takes
 around 7 minutes = around 20 minutes total.
@@ -53,7 +53,7 @@ Look at the visualization at the [official SMASH webpage](https://smash-transpor
 <details><summary><b> Making sure prequisites are ready </b></summary>
 <p>
 
-1. I assume that you have followed the [general school instructions](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md)
+I assume that you have followed the [general school instructions](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md)
  and have docker installed. You really need docker to proceed.
 
 Before we begin our session, please make sure all the code packages are already
@@ -75,6 +75,8 @@ Try the following command to make sure you are ready
 ```bash
     docker start -ai myJetscape
 ```
+</p>
+</details>
 
 <details><summary><b> 1. Compiling JetScape with SMASH in docker environment </b></summary>
 <p>
@@ -118,7 +120,7 @@ cd ~/jetscape-docker/JETSCAPE/build
 mkdir smash_output
 
 # The argument is a JetScape configuration file
-./runJetscape ~/jetscape-docker/SummerSchool2021/Jul22_Transport/jetscape_user_AuAu200.xml
+./runJetscape ../../SummerSchool2021/Jul22_Transport/jetscape_user_AuAu200.xml
 ```
 
 While the code is running we explore the way SMASH is configured.
@@ -127,20 +129,21 @@ While the code is running we explore the way SMASH is configured.
 </details>
 
 
-
 <details><summary><b> 2. Configuring SMASH </b></summary>
 <p>
 
- Let us have a look at the JetScape configuration file:
- <img src="pics/jetscape-config-SMASH.png" alt="1" width="500"/>
+ Let us have a look at the JetScape configuration file `SummerSchool2021/Jul22_Transport/jetscape_user_AuAu200.xml`:
+ <img src="pics/jetscape-config-SMASH.png" alt="1" width="800"/>
+
 
  From the JetScape configuration one can only set the end time of the simulation
  and switch off all collisions. Detailed SMASH configuration is in the
  SMASH config files. They are described in detail in [SMASH user guide](http://theory.gsi.de/~smash/userguide/1.8/).
  In this tutorial we look at some of the options.
 
- Let's look at the SMASH config file:
- <img src="pics/smash_config.png" alt="1" width="500"/>
+ Let's look at the SMASH config file `SummerSchool2021/Jul22_Transport/smash_config.yaml`:
+ <img src="pics/smash_config.png" alt="1" width="800"/>
+
 
  Focusing on the Output section:
 
@@ -166,7 +169,23 @@ While the code is running we explore the way SMASH is configured.
             Only_Final:      No
   ```
 
-*Let's look at the results of our simulations*
+**Check out particles and decaymodes files**
+----
+
+In the `SummerSchool2021/Jul22_Transport` folder look at `particles.txt` and `decaymodes.txt`.
+The file `particles.txt` is the list of all hadrons used in the simulations:
+ <img src="pics/particles.png" alt="1" width="800"/>
+
+The file `decaymodes.txt` is the list of resonance decaymodes.
+ <img src="pics/decaymodes.png" alt="1" width="800"/>
+
+Both files can be edited without recompiling the code. This
+is a useful opportunity when you, for example, study resonance production
+and want to vary branching ratios into of decays into this resonance, or
+of decays of the resonance.
+
+
+**Let's look at the results of our simulations**
 ----
 
   The SMASH output is in the `smash_output` folder.
@@ -196,7 +215,8 @@ While the code is running we explore the way SMASH is configured.
   ```
 
   In principle you can analyse these results using your favourite way to write scripts.
-  In the last tutorial I suggested a quick and easy way to use ROOT output for analysis.
+  In the [2020 SMASH tutorial](https://github.com/JETSCAPE/SummerSchool2020/tree/master/SMASH_session)
+  I suggested a quick and easy way to use ROOT output for analysis.
   In this tutorial, I would like to take advantage of the SMASH analysis suite, that reads in binary output.
 
 </p>
@@ -204,27 +224,23 @@ While the code is running we explore the way SMASH is configured.
 
 
 
-<details><summary><b> 4. Exploring chemical and kinetic freeze-out </b></summary>
+<details><summary><b> 3. Life and death of rho-meson </b></summary>
 <p>
 
-What can you conclude from this study? Let's discuss it in the chat.
-
-1. How much does the hadronic rescattering change the spectra?
-2. What can you say about chemical freeze-out?
-3. What can you say about kinetic freeze-out?
-
+Some questions to explore:
 ----
 
-Now let us look at the reactions. When do the elastic and inelastic reactions stop?
-Do inelastic reactions cease earlier than elastic ones? Are reactions equilibrated
-at some point, i.e. do they occur at the same rate in forward and backward directions?
+1. What reactions create and destroy ρ⁰ in SMASH? Which of these reactions are more important and which less?
+2. Are the producing and destroying reactions in equilibrium or not?
+3. How many of ρ⁰ resonances sampled from hydro end up in the detector?
+4. When and where are the detectable ρ⁰ typically born? typically decay?
+5. How many ρ⁰ get excited to higher mass resonances, which decay into something else?
+6. How important is regeneration (π⁺π⁻ -> ρ⁰) for the detected ρ⁰ yield
+7. How important are 2 ↔ 2 reactions compared to 1 ↔ 2 for ρ⁰ production?
+8. Your own research question, please suggest them in the chat
 
-
-#### Discussion
-
-1. What did you learn about chemical and kinetic freeze-out?
-2. Were we able to pinpoint them in a transport simulation? If yes then how? If no then why?
-3. How would you proceed to study it further?
+Analyzing the collisions output of SMASH
+----
 
 </p>
 </details>
