@@ -4,10 +4,17 @@
  - Learn to use SMASH as a hadronic afterburner
  - Understand SMASH inputs: resonances and their decays, switching on and off different reactions
  - Understand SMASH outputs: particles and collision history
- - Physics project: ``Life and death of Delta-resonance''
+ - Physics project: Life and death of rho-resonance
 
 *To begin* add your name to the [table](https://docs.google.com/spreadsheets/d/e/2PACX-1vTo_TeWIkXPCh4PBpLBNZac_pkB6pao6ynenWf2RNMZDHjeT4O1Mg3xBPx6nkitxthQq7GRothvNjCC/pubhtml) to mark your progress.
 Then follow the steps below.
+
+It would be great if you *perform step 1. in advance*,
+because compilation of SMASH library takes around 5 minutes, compilation
+of JetScape with SMASH takes around 7 minutes, running getting 10 events takes
+around 7 minutes = around 20 minutes total.
+
+  
 
 <details><summary> My personal docker cheat sheet </summary>
 <p>
@@ -33,9 +40,11 @@ I'm not an active docker user, so here I assemble commands that were useful for 
 <details><summary><b> What is SMASH </b></summary>
 <p>
 
-SMASH is a hadronic transport code. In JETSCAPE it simulates multiple hadron-hadron scatterings in the final dilute stage of the fireball evolution.
-Look at the visualization at the [official SMASH webpage](https://smash-transport.github.io/). At the end of our session you might be able
-to create similar visualizations, configure SMASH and analyze its output.
+SMASH is a hadronic transport code. In JETSCAPE it simulates multiple hadron-hadron scatterings
+in the final dilute stage of the fireball evolution. Observables affected by the afterburner
+are baryon spectra and flow, as well as resonance production.
+
+Look at the visualization at the [official SMASH webpage](https://smash-transport.github.io/).
 
 </p>
 </details>
@@ -45,8 +54,22 @@ to create similar visualizations, configure SMASH and analyze its output.
 <details><summary><b> Making sure prequisites are ready </b></summary>
 <p>
 
-1. I assume that you have followed the [general school instructions](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md) and have
-docker installed. You really need docker to proceed.
+1. I assume that you have followed the [general school instructions](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md)
+ and have docker installed. You really need docker to proceed.
+
+Before we begin our session, please make sure all the code packages are already
+in the correct place on your computer. You should have a `jetscape-docker`
+folder under your home directory. Try to list the folder inside
+`jetscape-docker` with the following command,
+
+```
+ls ~/jetscape-docker
+```
+
+You need to make sure the following folders are present,
+
+* JETSCAPE
+* SummerSchool2021
 
 Try the following command to make sure you are ready
 
@@ -74,7 +97,7 @@ cd jetscape-docker/JETSCAPE/external_packages
 ./get_freestream-milne.sh
 ./get_lbtTab.sh
 
-# Download SMASH and compile SMASH as library
+# Downloading SMASH and compiling SMASH as library
 # This takes around 5 minutes on laptop
 ./get_smash.sh
 
@@ -83,26 +106,23 @@ cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_SMASH=ON
 
 # Compiles JetScape+MUSIC+SMASH
 # This takes around 7 minutes on laptop
-make -j4
+# The number after j means number of cores, adjust according to available computing power
+make -j2
 ```
 
-Now let's try to run SMASH. Starting default smash run:
+Let us run JETSCAPE with SMASH
 
 ```
-./smash
+cd ~/jetscape-docker/JETSCAPE/build
+
+# Creating output directory with this specific name is important, otherwise you get a crash
+mkdir smash_output
+
+# The argument is a JetScape configuration file
+./runJetscape ~/jetscape-docker/SummerSchool2021/Jul22_Transport/jetscape_user_AuAu200.xml
 ```
 
-Print out SMASH version:
-
-```
-./smash --version
-```
-
-Prints the list of all SMASH command line options
-
-```
-./smash --help
-```
+While the code is running we explore the way SMASH is configured.
 
 </p>
 </details>
@@ -111,47 +131,32 @@ Prints the list of all SMASH command line options
 
 <details><summary><b> 2. Configuring SMASH </b></summary>
 <p>
-  What SMASH is going to simulate depends on what you ask it.
-  By default it simulates a Au+Au collision at 1.23 GeV per nucleon in the lab frame.
-  In the end we want to use SMASH as a hadronic afterburner, so let's learn to configure it.
-  You can learn how to do it by yourself from the detailed [SMASH user guide](http://theory.gsi.de/~smash/userguide/1.8/),
-  but this tutorial is intended to make your life a bit simpler. So let's go
-  step by step.
 
-  SMASH is controlled in two ways:
+ Let us have a look at the JetScape configuration file:
+ <img src="figs/jetscape-config-SMASH.png" alt="1" width="500"/>
 
-  - By configuration file\
-    By default this file is called config.yaml. Let's copy
-    it to JETSCAPE_school.yaml and make smash read configuration from it:
+ From the JetScape configuration one can only set the end time of the simulation
+ and switch off all collisions. Detailed SMASH configuration is in the
+ SMASH config files. They are described in detail in [SMASH user guide](http://theory.gsi.de/~smash/userguide/1.8/).
+ In this tutorial we look at some of the options.
 
-    ```
-      cp config.yaml JETSCAPE_school.yaml
-      ./smash --inputfile JETSCAPE_school.yaml
-    ```
+ Let's look at the SMASH config file:
+ <img src="figs/smash_config.png" alt="1" width="500"/>
 
-  - By command-line options\
-    They can overrule the options in the file. For example,
-
-    ```
-      ./smash --inputfile JETSCAPE_school.yaml --config "General: {End_Time: 40.0}"
-    ```
-    will change the simulation end time from the 200 fm/c in the config to 40 fm/c.
-
-  Now let us look inside the `JETSCAPE_school.yaml`. For now let's focus
-  on the Output section:
+ Focusing on the Output section:
 
   ```
     Output:
-        Output_Interval: 10.0
+        Output_Interval: 5.0
         Particles:
             Format:          ["Oscar2013"]
   ```
 
   This means that SMASH is going to print out all the particles in
   Oscar2013 format (a simple human readable text), and if it is required to
-  print out particles in the middle of the simulation, it will do so every 10.0 fm/c.
+  print out particles in the middle of the simulation, it will do so every 5.0 fm/c.
   By default SMASH will print out only particles in the end of the simulation.
-  To make it actually print out particles every 10 fm/c we need to supply our config with
+  To make it actually print out particles every 5 fm/c we need to supply our config with
   an additional `Only_Final: No` option.
 
   ```
@@ -165,11 +170,20 @@ Prints the list of all SMASH command line options
 *Let's look at the results of our simulations*
 ----
 
-  By default SMASH output will be in the folders `data/0`, `data/1`, etc.
-  Open the latest `data/?` folder and look at the files there.
-  There is config.yaml there, it is just a full copy of SMASH configuration
-  to keep record of what was done. And there is a `particle_lists.oscar` file. This is the one we want to look at.
-  It contains the particles that SMASH generated. Open it and you should see something like this:
+  The SMASH output is in the `smash_output` folder.
+  If you followed previous instructions and the luck is on your side then there are 4 files in the folder:
+  ```
+  particles_binary.bin
+  collisions_binary.bin
+  particle_lists.oscar
+  full_event_history.oscar
+  ```
+
+  The files (`particles_binary.bin` and `particle_lists.oscar`) as well as
+  (`collisions_binary.bin` and `full_event_history.oscar`) contain the same information, but
+  in different formats. Oscar files are human-readable and bin files are binary. SMASH can also
+  generate outputs in ROOT, vtk, hepmc formats.
+  Let's look at the contents of particle_lists.oscar, you should see something like this:
 
   ```
    #!OSCAR2013 particle_lists t x y z mass p0 px py pz pdg ID charge
@@ -182,116 +196,13 @@ Prints the list of all SMASH command line options
    ...
   ```
 
-  You can analyse these results already using your favourite way to write scripts, but at this tutorial I want to show some
-  convenient approaches to perform quick analysis without writing much code.
-  For this we want output in a ROOT format.
+  In principle you can analyse these results using your favourite way to write scripts.
+  In the last tutorial I suggested a quick and easy way to use ROOT output for analysis.
+  In this tutorial, I would like to take advantage of the SMASH analysis suite, that reads in binary output.
 
-
-*Let's generate ROOT output with more events for analysis*
-----
-
-  Create a `config_SMASH_tutorial_collider.yaml` file with the following contents:
-
-  ```
-    Version: 1.8 # minimal SMASH version to use with this config file
-
-    Logging:
-        default: INFO
-
-    General:
-        Modus:          Collider
-        Time_Step_Mode: Fixed
-        Delta_Time:     0.1
-        End_Time:       200.0
-        Randomseed:     -1
-        Nevents:        50
-
-    Output:
-        Output_Interval: 10.0
-        Particles:
-            Format:          ["Oscar2013", "Root"]
-
-    Modi:
-        Collider:
-            Projectile:
-                Particles: {2212: 79, 2112: 118} #Gold197
-            Target:
-                Particles: {2212: 79, 2112: 118} #Gold197
-
-            E_Kin: 1.23
-            Fermi_Motion: "frozen"
-  ```
-
-  This is almost the default configuration, but we have set `Nevents:  50` and added Root output.
-  Run smash with this config:
-
-  ```
-    ./smash --inputfile config_SMASH_tutorial_collider.yaml
-  ```
-
-
-  Next we will look at the Root output.
-
-</p>
-</details>
-
-
-
-<details><summary><b> 3. Analysis of ROOT output, looking at rapidity distributions </b></summary>
+<details><summary><b> 3. Analysis of binary output using SMASH analysis suite </b></summary>
 <p>
 
-
-<details><summary> If you have ROOT installed on your computer (*not* in docker enviroment) </summary>
-<p>
-
-  1. Exit the docker environment by typing `exit`.
-  2. Go to the `jetscape-docker/JETSCAPE/external_packages/smash/smash_code/build` folder
-  3. Start ROOT and run the TBrowser:
-
-     ```
-       root -l
-       new TBrowser
-     ```
-
-    This should open a browser. Use it to open the Root file `Particles.root` you generated previously from SMASH simulation.
-    Remember, that by default SMASH output is in the latest of `data/0`, `data/1`, `data/?` folders.
-    In the left panel of the browser you should see a tree called `particles`. Double-click on it and you will see many
-    leaves. Double-click on a leaf shows a histogram. In this way you can see a distribution of x, y, z coordinates,
-    times of output, particle energies p0, and momenta px, py, pz.
-  4. Enter commands in the `Command(local)` panel, for example:
-
-     ```
-       particles->Draw("0.5 * log((p0+pz)/(p0-pz))","pdgcode == 2212", "E");
-     ```
-
-     Now left-click on the histogram canvas to update it.
-</p>
-</details>
-
-
-
-Suppose that you do not have ROOT installed on your laptop or something didn't work well with your TBrowser.
-You still have ROOT in your docker environment, just some nice visuals are not going to work. The way to proceed is the following.
-
-1. Make sure you are in the docker environment. If not then run `docker start -ai myJetscape` to enter it.
-2. Go to the `jetscape-docker/JETSCAPE/external_packages/smash/smash_code/build` folder
-3. In the docker environment run
-
-   ```
-     root -l
-   ```
-
-   This should start a ROOT shell. You will see a `root [0]` prompt.
-
-
-   Let's do something practical. We have generated 50 events previously, now let's compare pion to proton rapidity distributions.
-   In the ROOT environment open the file you generated. Remember, that by default SMASH output is in the latest of `data/0`, `data/1`, `data/?` folders.
-
-   ```
-     TFile *f=new TFile("data/1/Particles.root");
-     TTree *particles=(TTree*)f->Get("particles");
-     particles->Scan("*");
-   ```
 
    This will inform you about the contents of a ROOT file in a table form. You can see the columns `p0, px, py, pz`
    corresponding to particle 4-momenta. To plot rapidity distribution
