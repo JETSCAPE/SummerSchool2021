@@ -48,13 +48,13 @@ TestResultFolder = "."
 # load hydrodynamic evolution data
 data = fromfile(
     path.join(working_path, TestResultFolder,
-              "evolution_for_movie_xyeta_MUSIC.dat"), dtype=float32)
+              "evolution_all_xyeta_MUSIC.dat"), dtype=float32)
 
 # read header about the grid information
-header = data[0:12]
+header = data[0:16]
 
 # read in data and reshape it to the correct form
-data = data[12:].reshape(-1, int(header[-1]))
+data = data[16:].reshape(-1, int(header[-1]))
 
 # get the list for tau frame
 tau_list = unique(data[:, 0])
@@ -90,12 +90,12 @@ for itau in range(ntau):
         x_idx   = int(data_cut[igrid, 1] + 0.1)
         y_idx   = int(data_cut[igrid, 2] + 0.1)
         eta_idx = int(data_cut[igrid, 3] + 0.1)
-        u0 = sqrt(1. + data_cut[igrid, 9]**2.
-                  + data_cut[igrid, 10]**2. + data_cut[igrid, 11]**2)
-        ed[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 5]
-        T[itau, eta_idx, x_idx, y_idx]  = data_cut[igrid, 7]
-        vx[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 9]/u0
-        vy[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 10]/u0
+        u0 = sqrt(1. + data_cut[igrid, 7]**2.
+                  + data_cut[igrid, 8]**2. + data_cut[igrid, 9]**2)
+        ed[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 4]
+        T[itau, eta_idx, x_idx, y_idx]  = data_cut[igrid, 6]
+        vx[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 7]/u0
+        vy[itau, eta_idx, x_idx, y_idx] = data_cut[igrid, 8]/u0
 
 # print out some useful information about the evolution file
 print("Read in data completed.")
