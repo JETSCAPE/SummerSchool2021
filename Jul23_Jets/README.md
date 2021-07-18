@@ -1,0 +1,161 @@
+# JETSCAPE Jet Session: Jets
+
+
+
+## 1. Start the Docker Container
+
+If you use ssh to do exercises on a remote computer, you need to create your ssh session with the following command: 
+
+```
+ssh -L 8888:127.0.0.1:8888 user@server
+```
+
+Then, if you stopped the docker container for Gojko's jet hands-on session, please restart it,
+
+For MacOS
+```
+docker run -it -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSJetSession jetscape/base:v1.4
+```
+
+For Linux
+```
+docker run -it -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSJetSession --user $(id -u):$(id -g) jetscape/base:v1.4
+```
+If you get an error `permission denied` on Linux,
+please try `sudo`.
+
+The option `-p 8888:8888` is necessary to creates a port to access the jupyter notebook, which we use in this hands-on session, from your local web browser.
+
+
+## 2. Get Materials
+
+
+Inside the docker container, download the school material from git if you have not:
+
+```
+cd ~/
+git clone https://github.com/JETSCAPE/SummerSchool2021.git
+```
+
+If you have alread downloaded the material, please update to the latest version:
+```
+cd ~/SummerSchool2021
+git pull
+```
+
+Go to `SummerSchool2021/Jul23_Jets` directory and download hydro profile files for this session:
+
+```
+cd ~/SummerSchool2021/Jul23_Jets
+source ./get_hydro_profile.sh
+```
+
+Then execute the script `init.sh` inside `SummerSchool2021/Jul23_Jets`:
+```
+source ./init.sh
+```
+
+
+## 3. Build JETSCAPE with LBT-tables, MUSIC and iSS
+
+Please make sure all the external code packages (LBT-tables, MUSIC and iSS) have been
+downloaded in `JETSCAPE/external_packages`. You can check this by the following commands,
+
+```
+cd ~/JETSCAPE/external_packages
+ls
+```
+
+Please check the folder `LBT-tables`, `music` and `iSS` are present.
+If not, please get them with the following commands,
+
+```
+./get_lbtTab.sh
+./get_music.sh
+./get_iSS.sh
+```
+
+Setup and build JETSCAPE from inside the docker container:
+
+```
+cd ~/JETSCAPE
+mkdir build
+cd build
+cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON
+make -j4
+```
+
+## 4. Test Run and Graph Visualization
+
+Inside `build`, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
+
+```
+./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PP_PHYS.xml
+```
+
+Check whether the code finished running without any error.
+
+Then, lets' Visualize the parton shower. First, run `readerTest` inside `build`
+```
+./readerTest
+```
+
+Next, go <u>outside the docker</u>, install Graphviz (if you do not have). 
+
+For MacOS via Homebrew
+```
+brew install graphviz
+```
+
+For MacOS via MacPorts
+```
+sudo port install graphviz
+```
+
+For Ubuntu or Debian
+```
+sudo apt install graphviz
+```
+
+For Fedora, Redhat, or CentOS
+```
+sudo yum install graphviz
+```
+
+Then, go `~/jetscape-docker/JETSCAPE/build` <u>outside the docker</u> and convert `my_test.gv` to a pdf file 
+```
+dot my_test.gv -Tpdf -o outputPDF.pdf
+```
+
+Open `outputPDF.pdf` in `build` with your pdf viewer and find the parton shower history.
+
+## 5. Run pp@5.02 TeV Events
+
+Inside `build`, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
+
+```
+./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PP_PHYS.xml
+```
+
+Then, extract the final state hadrons by `FinalStateHadrons`
+
+```
+./FinalStateHadrons test_out_pp.dat test_out_pp_final_hadrons.dat
+```
+
+The list of hadrons in the final states of events is stored in `test_out_pp_final_hadrons.dat`
+
+## 6. Run PbPb@5.02 TeV Events (Homework)
+Inside `build`, execute `runJetscape` with `jetscape_user_PbPb_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
+
+```
+./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PbPb_PHYS.xml
+```
+
+Then, extract the final state hadrons by `FinalStateHadrons`
+
+```
+./FinalStateHadrons test_out_pbpb.dat test_out_pbpb_final_hadrons.dat
+```
+
+The list of hadrons in the final states of events is stored in `test_out_pbpb_final_hadrons.dat`
