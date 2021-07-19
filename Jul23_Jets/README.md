@@ -100,7 +100,7 @@ Then, lets' Visualize the parton shower. First, run `readerTest` inside `build`
 ./readerTest
 ```
 
-Next, go <u>outside the docker</u>, install Graphviz (if you do not have). 
+Next, go <b><u>outside the docker</u></b>, install Graphviz (if you do not have). 
 
 For MacOS via Homebrew
 ```
@@ -122,7 +122,7 @@ For Fedora, Redhat, or CentOS
 sudo yum install graphviz
 ```
 
-Then, go `~/jetscape-docker/JETSCAPE/build` <u>outside the docker</u> and convert `my_test.gv` to a pdf file 
+Then, go `~/jetscape-docker/JETSCAPE/build` <b><u>outside the docker</u></b> and convert `my_test.gv` to a pdf file 
 ```
 dot my_test.gv -Tpdf -o outputPDF.pdf
 ```
@@ -151,6 +151,7 @@ Inside `build`, execute `runJetscape` with `jetscape_user_PbPb_PHYS.xml` in `Sum
 ```
 ./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PbPb_PHYS.xml
 ```
+This takes around <b><u>30 mins</u></b>. 
 
 Then, extract the final state hadrons by `FinalStateHadrons`
 
