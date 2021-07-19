@@ -2,7 +2,7 @@
 
 <jetscape>
   
-  <nEvents> 200 </nEvents>
+  <nEvents> 250 </nEvents>
   
   <outputFilename>test_out_pp</outputFilename>
   <JetScapeWriterAscii> on </JetScapeWriterAscii>  
