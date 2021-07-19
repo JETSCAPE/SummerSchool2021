@@ -3,7 +3,7 @@
 ############################################################################################################
 
 # General
-import os
+import math
 import tqdm
 import argparse
 import csv
@@ -103,7 +103,7 @@ def write_output(jet, associated, new_file = False):
     pz = assoc.momentum.pz
     e = assoc.momentum.e
     pj = fj.PseudoJet(px, py, pz, e)
-    
+      
     output = [i+1, pj.perp(), pj.eta(), pj.phi(), assoc.status, assoc.pid ]
     output_list.append(output)
 
@@ -171,7 +171,11 @@ def fill_associated_particles(jet, hadrons, select_status=None, select_charged=F
     e = hadron.momentum.e
 
     fj_particle = fj.PseudoJet(px, py, pz, e)
-    delta_r = jet.delta_R(fj_particle)
+    
+    delta_eta = fj_particle.eta() - jet.eta()
+    delta_phi = fj_particle.delta_phi_to(jet)
+    delta_r = math.sqrt(delta_eta*delta_eta + delta_phi*delta_phi)
+    #delta_r = fj_particle.delta_R(jet)
 
     # inside jet cone
     if delta_r < 0.4:
