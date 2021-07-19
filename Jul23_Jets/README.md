@@ -90,7 +90,7 @@ make -j4
 Inside `build`, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
 ```
-./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PP_PHYS.xml
+./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PbPb_PHYS_TestRun.xml
 ```
 
 Check whether the code finished running without any error.
