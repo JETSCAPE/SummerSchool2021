@@ -2,7 +2,7 @@
 
 <jetscape>
   
-  <nEvents> 100 </nEvents>
+  <nEvents> 200 </nEvents>
   
   <outputFilename>test_out_pp</outputFilename>
   <JetScapeWriterAscii> on </JetScapeWriterAscii>  
@@ -15,7 +15,7 @@
   <Hard>
     <PythiaGun>
       <pTHatMin>100</pTHatMin>
-      <pTHatMax>250</pTHatMax>
+      <pTHatMax>200</pTHatMax>
       <eCM>5020</eCM>
     </PythiaGun>
   </Hard>
