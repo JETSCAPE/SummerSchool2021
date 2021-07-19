@@ -131,7 +131,7 @@ Open `outputPDF.pdf` in `build` with your pdf viewer and find the parton shower 
 
 ## 5. Run pp@5.02 TeV Events
 
-Inside `build`, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
+In `build` directory <b><u>inside the docker</u></b>, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
 ```
 ./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PP_PHYS.xml
@@ -146,7 +146,7 @@ Then, extract the final state hadrons by `FinalStateHadrons`
 The list of hadrons in the final states of events is stored in `test_out_pp_final_hadrons.dat`
 
 ## 6. Run PbPb@5.02 TeV Events (Homework)
-Inside `build`, execute `runJetscape` with `jetscape_user_PbPb_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
+In `build` directory <b><u>inside the docker</u></b>, execute `runJetscape` with `jetscape_user_PbPb_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
 ```
 ./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_PbPb_PHYS.xml
