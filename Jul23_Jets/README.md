@@ -10,7 +10,7 @@ If you use ssh to do exercises on a remote computer, you need to create your ssh
 ssh -L 8888:127.0.0.1:8888 user@server
 ```
 
-Then, if you stopped the docker container for Gojko's jet hands-on session, please restart it,
+Then, please start the docker container,
 
 For MacOS
 ```
