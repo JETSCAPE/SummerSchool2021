@@ -1,8 +1,8 @@
 <jetscape>
 
-  <nEvents>200</nEvents>
+  <nEvents>250</nEvents>
   <setReuseHydro>true</setReuseHydro>
-  <nReuseHydro>200</nReuseHydro>
+  <nReuseHydro>250</nReuseHydro>
 
   <JetScapeWriterAscii>on</JetScapeWriterAscii>
 
@@ -22,7 +22,7 @@
   <Hard>
     <PythiaGun>
       <pTHatMin>100</pTHatMin>
-      <pTHatMax>200</pTHatMax>
+      <pTHatMax>160</pTHatMax>
       <eCM>5020</eCM>
     </PythiaGun>
   </Hard>
