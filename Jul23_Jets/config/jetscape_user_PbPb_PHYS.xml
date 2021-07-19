@@ -15,7 +15,7 @@
   </Random>
   <!-- Inital State Module  -->
   <IS>
-    <initial_profile_path>../../JETSCAPE_SCHOOL_PHYS/test_hydro_profile</initial_profile_path>
+    <initial_profile_path>../../SummerSchool2021/Jul23_Jets/test_hydro_profile</initial_profile_path>
   </IS>
 
   <!-- Hard Process -->
@@ -37,7 +37,7 @@
     <hydro_from_file>
       <boost_invariant_>1</boost_invariant_>
       <read_in_multiple_hydro>1</read_in_multiple_hydro>
-      <hydro_files_folder>../../JETSCAPE_SCHOOL_PHYS/test_hydro_profile</hydro_files_folder>
+      <hydro_files_folder>../../SummerSchool2021/Jul23_Jets/test_hydro_profile</hydro_files_folder>
     </hydro_from_file>
   </Hydro>
 
