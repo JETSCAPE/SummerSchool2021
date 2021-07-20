@@ -1,4 +1,4 @@
-# July 28 JETSCAPE Bayesian Example.
+# July 28 (2h) JETSCAPE Bayesian Example.
 ## Relevent Notebook
 
 ### SimpleGaussianProcess.ipynb and BayesForSimpleModel.ipynb

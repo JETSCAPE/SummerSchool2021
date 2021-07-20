@@ -81,6 +81,14 @@ You need to make sure the following folders are present,
 * JETSCAPE
 * SummerSchool2021
 
+Update your Summer School folder
+
+```bash
+cd SummerSchool2021
+git pull origin master
+cd -
+```
+
 Try the following command to make sure you are ready
 
 ```bash
@@ -257,7 +265,7 @@ Analyzing the output of SMASH
 ----
 
 ```bash
-TRANSPORT_WORKSHOP_FOLDER="../../SummerSchool2021/Jul22_Transport/"
+TRANSPORT_WORKSHOP_FOLDER="~/SummerSchool2021/Jul22_Transport/"
 RESULTS_FOLDER="./results/"
 mkdir -p $RESULTS_FOLDER
 

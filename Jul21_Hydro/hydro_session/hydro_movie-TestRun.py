@@ -175,7 +175,7 @@ anim.save('animation_temperature.mp4', fps=24)
 
 print("Generate animation for T and flow ...")
 # Generate movie for temperature evolution with velocity field
-nskip = 1  # only plot every other point to speed up the live animation
+nskip = 2  # only plot every other point to speed up the live animation
 
 X, Y = meshgrid(x, y)
 
