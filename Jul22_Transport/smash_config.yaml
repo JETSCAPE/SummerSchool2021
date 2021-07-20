@@ -16,9 +16,10 @@ General:
 #    Included_2to2: ["Elastic", "NN_to_NR", "NN_to_DR", "KN_to_KN", "KN_to_KDelta", "Strangeness_exchange", "NNbar"]
 
 Output:
-    Output_Interval:  5.0
+    Output_Interval:  1.0
     Particles:
         Format: ["Oscar2013", "Binary"]
+        Only_Final: No
     Collisions:
         Format: ["Oscar2013", "Binary"]
 
