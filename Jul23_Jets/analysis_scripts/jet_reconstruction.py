@@ -62,7 +62,7 @@ def analyze_event(event, event_id=1):
 
   # Set jet definition and a jet selector
   jet_def = fj.JetDefinition(fj.antikt_algorithm, jetR)
-  jet_selector = fj.SelectorPtMin(80) & fj.SelectorAbsRapMax(5.)
+  jet_selector = fj.SelectorPtMin(100) & fj.SelectorAbsRapMax(5.)
 
   if event_id == 0:
     print('jet definition is:', jet_def)
