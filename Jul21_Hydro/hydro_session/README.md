@@ -58,12 +58,12 @@ notebook. Please use the following command:
 
 **macOS:**
 ```
-docker run -it -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSHydroSession jetscape/base:v1.4
+docker run -it --rm -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSHydroSession jetscape/base:v1.4
 ```
 
 **Linux:**
 ```
-docker run -it -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSHydroSession --user $(id -u):$(id -g) jetscape/base:v1.4
+docker run -it --rm -p 8888:8888 -v ~/jetscape-docker:/home/jetscape-user --name myJSHydroSession --user $(id -u):$(id -g) jetscape/base:v1.4
 ```
 
 - `--rm` This option will delete the current docker container at the exit.
