@@ -14,7 +14,8 @@
   <!-- Jetscape Writer -->
   <JetScapeWriterAscii> on </JetScapeWriterAscii>
   <outputFilename>test_out_two_stage_hydro</outputFilename>  
-
+  <JetScapeWriterFinalStatePartonsAscii> off </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> off </JetScapeWriterFinalStateHadronsAscii>
   <!-- Inital State Module  -->
   <IS>
       <!-- set boost invariant simulation -->

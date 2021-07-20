@@ -5,7 +5,9 @@
   <nEvents> 250 </nEvents>
   
   <outputFilename>test_out_pp</outputFilename>
-  <JetScapeWriterAscii> on </JetScapeWriterAscii>  
+  <JetScapeWriterAscii> on </JetScapeWriterAscii> 
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii> 
   <nEvents_printout>1</nEvents_printout>
 
   <Random>

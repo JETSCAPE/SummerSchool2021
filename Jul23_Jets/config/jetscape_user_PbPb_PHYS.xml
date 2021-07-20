@@ -8,6 +8,8 @@
 
   <outputFilename>test_out_pbpb</outputFilename>
   <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
   <nEvents_printout>1</nEvents_printout>
 
   <Random>
