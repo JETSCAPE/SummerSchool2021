@@ -1,6 +1,6 @@
-# <b>JETSCAPE Jet Session<b>
+# <b>JETSCAPE Jet Session</b>
 
-## <b><span style="color: orange; ">0. Preparation: Event Generation [Day 1]<span></b>
+## <b>0. Preparation: Event Generation [Day 1]</b>
 Here we generates hard scatterings with JETSCAPE for both pp and PbPb at 5.02 TeV.
 On the second day, we will use the generated event data and do analysis for jet ovservables. 
 In this example, for each of pp and PbPb, we are generating 250 hard scatterings with 100<$\hat{p}_T$<160 GeV. 
@@ -157,7 +157,7 @@ Here, not to overwrite the output file you have generated, please put different 
 ```
 
 
-## <b><span style="color: orange; ">1. Jet Analysis [Day 2]</span></b>
+## <b>1. Jet Analysis [Day 2]</b>
 
 ### <span style="color: orange; ">1.1. Relaunch the Docker for the session<span>
 
@@ -197,9 +197,9 @@ source ./init.sh
 ```
 
 ### <span style="color: orange; ">1.2. Jet Reconstruction</span>
-Here using the final state hadron list from JETSCAPE as input, we reconstruct jet by anti-kt algorithm [https://arxiv.org/abs/0802.1189] with jet cone size, R=0.4 by a python code. In the output file from the analysis code, information of jets and charged hadrons inside the jet cone (associated particles) will be stored. 
+Here using the final state hadron list from JETSCAPE as input, we reconstruct jet by anti-kt algorithm [https://arxiv.org/abs/0802.1189] with jet cone size, R=0.4 by FastJet [http://www.fastjet.fr]. In the output file from the analysis code, information of jets with $p_{\mathrm{T}}$ > 100 GeV and charged hadrons inside the jet cone (associated particles) will be stored. 
 
-Please go to `SummerSchool2021/Jul23_Jets/analysis_scripts` directory and find the python script `jet_reconstruction.py`.
+Please go to `SummerSchool2021/Jul23_Jets/analysis_scripts` directory and find `jet_reconstruction.py`.
 ```
 cd analysis_scripts
 ```
@@ -248,14 +248,27 @@ Then please open `jet_analysis.ipynb`, and follow the instructions.
 Once you have done, please close jupyter notebook to continue the later part of the workshop. 
 
 
-### <span style="color: orange; ">1.4. Analysis of events generated with different parameter set (Optional)</span>
+### <span style="color: orange; ">1.4. Analysis of events generated with different parameter set (Optional 1)</span>
 
 If you generated events with parameters different from the default one, 
 please go through the processes above also for them. 
 You can see the change of jet RAA and modification patterns of jet fragmentation and jet shape.
 
+### <span style="color: orange; ">1.4. Analysis of jets reconstructed with different jet cone size (Optional 2)</span>
 
-## <b><span style="color: orange; ">2. Hydrodynamic Medium Response [Day 2]</span><b>
+With `-r` you can empeloy the jet cone size different from the default one R=0.4 in `jet_reconstruction.py`. For example, if you run `jet_reconstruction.py` in the following way
+```
+python jet_reconstruction.py -r 0.6 -i ../../../JETSCAPE/build/test_out_pp_final_state_hadrons.dat -o ../data/jet_pp_r_0p6.dat
+```
+jets will be reconstructed with jet cone size R=0.6. 
+
+Perform jet reconstruction by `jet_reconstruction.py` with jet cone size different from R=0.4 for both pp and PbPb, and then go through the analysis processes with Jupyter Notebook for them. 
+
+
+
+
+
+## <b>2. Hydrodynamic Medium Response [Day 2]</b>
 Here we see the pattern of hydrodynamic flow excited by the jet propagation in the medium by performing simulations of two-stage hydro with liquefier in JETSCAPE. 
 
 ### <span style="color: orange; ">2.1. Run Twostage Hydro of JETSCAPE</span>

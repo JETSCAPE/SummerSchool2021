@@ -17,6 +17,10 @@ from reader import reader_ascii
 # ---------------------------------------------------------------
 input_file_hadrons = ''
 output_file_jets = ''
+jetR = 0.0
+jetPtMin = 100.0 # Minimum value of jet pt
+rapMax = 5.0 # Maximum value for abs of jet rapidity
+minTrackPt=0.05 # Minimum value of track particle pt
 # ---------------------------------------------------------------
 # Main processing function
 # ---------------------------------------------------------------
@@ -52,17 +56,14 @@ def analyze_event(event, event_id=1):
   new_file = False
 
   # Get Hadron List for a Event
-  hadrons = event.hadrons(min_track_pt=0.05)
+  hadrons = event.hadrons(min_track_pt=minTrackPt)
 
   # Create list of fastjet::PseudoJets
   fj_hadrons = fill_fastjet_constituents(hadrons)
 
-  # jet cone size
-  jetR = 0.4
-
   # Set jet definition and a jet selector
   jet_def = fj.JetDefinition(fj.antikt_algorithm, jetR)
-  jet_selector = fj.SelectorPtMin(100) & fj.SelectorAbsRapMax(5.)
+  jet_selector = fj.SelectorPtMin(jetPtMin) & fj.SelectorAbsRapMax(rapMax)
 
   if event_id == 0:
     print('jet definition is:', jet_def)
@@ -81,7 +82,7 @@ def analyze_event(event, event_id=1):
   for jet in jets:
     holes_in_jet = fill_associated_particles(jet, hadrons, select_status='-', select_charged=False)    
     jet = hole_subtraction(jet,holes_in_jet)
-    if jet.perp() > 100:
+    if jet.perp() > jetPtMin:
       charged_in_jet = fill_associated_particles(jet, hadrons, select_status=None, select_charged=True)
       new_file = write_output(jet, charged_in_jet, new_file)
 
@@ -178,7 +179,7 @@ def fill_associated_particles(jet, hadrons, select_status=None, select_charged=F
     #delta_r = fj_particle.delta_R(jet)
 
     # inside jet cone
-    if delta_r < 0.4:
+    if delta_r < jetR:
       associated.append(hadron)
 
   return associated
@@ -237,6 +238,13 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
+    parser.add_argument(
+      "-r", 
+      "--jetconeSize",
+      type=float, 
+      metavar="jetconeSize",
+      default=0.4,
+      help="jet cone size")
     
     parser.add_argument(
       "-i", 
@@ -257,6 +265,10 @@ if __name__ == "__main__":
     # Parse the arguments
     args = parser.parse_args()
 
+    # jet cone size
+    jetR = args.jetconeSize
+
+    # input and output file names
     input_file_hadrons = args.inputFile
     output_file_jets = args.outputFile
 
