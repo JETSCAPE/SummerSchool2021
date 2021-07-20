@@ -44,7 +44,11 @@
 
     <!-- Particlization Module  -->
     <SoftParticlization>
-        <iSS> </iSS>
+      <iSS>
+        <!-- hadron species list  0: PDG 2005; 1: UrQMD; 2: SMASH -->
+        <afterburner_type>2</afterburner_type>
+	<Perform_resonance_decays>0</Perform_resonance_decays>
+       </iSS>
     </SoftParticlization>
 
     <!-- Hadronic Afterburner  -->
