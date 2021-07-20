@@ -6,7 +6,7 @@
  - Understand SMASH outputs: particles and collision history
  - Physics project: Life and death of rho-resonance
 
-**To begin** add your name to the [table](https://docs.google.com/spreadsheets/d/e/2PACX-1vTo_TeWIkXPCh4PBpLBNZac_pkB6pao6ynenWf2RNMZDHjeT4O1Mg3xBPx6nkitxthQq7GRothvNjCC/pubhtml) to mark your progress.
+**To begin** add your name to the [table](https://docs.google.com/spreadsheets/d/1Q02JeQKvoLgwWFNQ0jBwi3qsyiSrnGOGvQmQRaUTfas/edit?usp=sharing) to mark your progress.
 Then follow the steps below.
 
 It would be great if you **perform step 1. in advance**,
