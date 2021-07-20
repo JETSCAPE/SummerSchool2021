@@ -160,21 +160,21 @@ While the code is running we explore the way SMASH is configured.
 
   ```yaml
     Output:
-        Output_Interval: 5.0
+        Output_Interval: 1.0
         Particles:
             Format:          ["Oscar2013"]
   ```
 
   This means that SMASH is going to print out all the particles in
   Oscar2013 format (a simple human readable text), and if it is required to
-  print out particles in the middle of the simulation, it will do so every 5.0 fm/c.
+  print out particles in the middle of the simulation, it will do so every 1.0 fm/c.
   By default SMASH will print out only particles in the end of the simulation.
-  To make it actually print out particles every 5 fm/c we need to supply our config with
+  To make it actually print out particles every 1 fm/c we need to supply our config with
   an additional `Only_Final: No` option.
 
   ```yaml
     Output:
-        Output_Interval: 10.0
+        Output_Interval: 1.0
         Particles:
             Format:          ["Oscar2013"]
             Only_Final:      No
@@ -229,6 +229,9 @@ of decays of the resonance.
   In the [2020 SMASH tutorial](https://github.com/JETSCAPE/SummerSchool2020/tree/master/SMASH_session)
   I suggested a quick and easy way to use ROOT output for analysis.
   In this tutorial, I would like to take advantage of the SMASH analysis suite, that reads in binary output.
+  Original [SMASH analysis suite](https://github.com/smash-transport/smash-analysis) is in python2,
+  so I had to update scripts to python3 and put them into the `SummerSchool2021/Jul22_Transport` folder
+  to be compatible with docker environment.
 
 </p>
 </details>
@@ -275,7 +278,27 @@ python ${TRANSPORT_WORKSHOP_FOLDER}/multiplicity_vs_time.py \
        "π⁺,π⁻,p,ρ⁰" \
        ${TRANSPORT_WORKSHOP_FOLDER}/dummy_config.yaml \
        ./smash_output/particles_binary.bin
+
+# Analyze collision graph: record destiny of resonances and find detectable one
+cd $RESULTS_FOLDER
+python ${TRANSPORT_WORKSHOP_FOLDER}/collision_graph_analysis.py \
+       ./smash_output/collisions_binary.bin
 ```
+
+These analyzed results are collected in one folder. Select one question
+above and answer it using them. You might need to slightly modify the analysis scripts.
+As an example of interesting physics information obtained from this analysis
+let me show the "destiny" plot of rho0 resonances:
+
+**Outside of docker environment** run this plotting script
+
+```bash
+cd ~/jetscape-docker/JETSCAPE/build
+python3 ../../SummerSchool2021/Jul22_Transport/la_destiny_sankey.py ./results/destiny_matrix.txt
+```
+
+What are the conclusions from this plot?
+What questions were you able/not able to answer? Why?
 
 </p>
 </details>
