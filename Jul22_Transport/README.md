@@ -14,6 +14,17 @@ because compilation of SMASH library takes around 5 minutes, compilation
 of JetScape with SMASH takes around 7 minutes, running and getting 10 events takes
 around 7 minutes = around 20 minutes total.
 
+<details><summary> In case copy-paste with mouse doesn't work in docker environment </summary>
+<p>
+I had this annoying problem that mouse selection, copying, and pasting do not work properly in
+the docker terminal. Here is how I solved it:
+
+```bash
+  echo "xterm*selectToClipboard: true" > ~/.Xdefaults
+```
+
+</p>
+</details>
 
 <details><summary> My personal docker cheat sheet </summary>
 <p>
@@ -239,8 +250,32 @@ Some questions to explore:
 7. How important are 2 ↔ 2 reactions compared to 1 ↔ 2 for ρ⁰ production?
 8. Your own research question, please suggest them in the chat
 
-Analyzing the collisions output of SMASH
+Analyzing the output of SMASH
 ----
+
+```bash
+TRANSPORT_WORKSHOP_FOLDER="../../SummerSchool2021/Jul22_Transport/"
+RESULTS_FOLDER="./results/"
+mkdir -p $RESULTS_FOLDER
+
+# Test that scripts read the binary fine
+python $TRANSPORT_WORKSHOP_FOLDER/quick_read.py smash_output/collisions_binary.bin
+
+# Run reaction counter
+python ${TRANSPORT_WORKSHOP_FOLDER}/count_reactions.py --production ρ⁰ \
+       ${RESULTS_FOLDER}/reaction_rates_output_midrapidity.txt \
+       ${RESULTS_FOLDER}/production_output_midrapidity.txt \
+       "π⁺,π⁻:ρ⁰|π⁺,ρ⁰:a₁(1260)⁺|π⁻,ρ⁰:a₁(1260)⁻|π⁰,ρ⁰:h₁(1170)|π⁰,ρ⁰:ω" \
+       1.0  ${TRANSPORT_WORKSHOP_FOLDER}/dummy_config.yaml \
+       ./smash_output/collisions_binary.bin
+
+# Count multiplicity versus time
+python ${TRANSPORT_WORKSHOP_FOLDER}/multiplicity_vs_time.py \
+       ${RESULTS_FOLDER}/multiplicity_vs_time_midrapidity.txt \
+       "π⁺,π⁻,p,ρ⁰" \
+       ${TRANSPORT_WORKSHOP_FOLDER}/dummy_config.yaml \
+       ./smash_output/particles_binary.bin
+```
 
 </p>
 </details>
