@@ -197,7 +197,7 @@ cd ~/SummerSchool2021/Jul23_Jets
 source ./init.sh
 ```
 
-### 2. Run analysis code to reconstruct jets
+### 2. Jet Reconstruction
 Here using the final state hadron list from JETSCAPE as input, we reconstruct jet by anti-kt algorithm [https://arxiv.org/abs/0802.1189] with jet cone size, R=0.4 by a python code. In the output file from the analysis code, information of jets and charged hadrons inside the jet cone (associated particles) will be stored. 
 
 Please go to `SummerSchool2021/Jul23_Jets/analysis_scripts` directory and find the python script `jet_reconstruction.py`.
@@ -224,7 +224,27 @@ Once finish running the analysis code, you will find `jet_pp.dat` and `jet_pbpb.
 in `SummerSchool2021/Jul23_Jets/data`
 storing the information of reconstructed jets.
 
-Inside those files, for each jet, the information of charged hadrons detected inside the jet cone ($\Delta r = \sqrt{(\eta_{\mathrm{ch}}-\eta_{\mathrm{jet}})^2+(\phi_{\mathrm{ch}}-\phi_{\mathrm{jet}})^2} < R =0.4$) is stored in csv format:
+Inside those files, for each jet, the information of charged hadrons detected inside the jet cone (delta r < R =0.4) is stored in csv format:
 
 <img src="img/jet_file.png" alt="1" width="1000"/>
 
+### 3. Analysis (with Jupyter Notebook)
+
+If you have already launched any jupyter notebooks outside the docker, please close them all first! Then, launch jupyter notebook in `SummerSchool2021/Jul23_Jets/notebooks` inside the docker contain with the following command,
+
+```
+cd ~/SummerSchool2021/Jul23_Jets/notebooks
+jupyter-notebook --ip 0.0.0.0 --no-browser
+```
+
+Open the displayed address starting with `http://127.0.0.1:8888/?token=...` in your browser. 
+
+<img src="img/notebook1.png" alt="1" width="1000"/>
+
+
+Then please open `jet_analysis.ipynb`, and follow the instructions.
+
+<img src="img/notebook2.png" alt="1" width="1000"/>
+
+
+## 2. Hydrodynamic Medium Response [Day 2]
