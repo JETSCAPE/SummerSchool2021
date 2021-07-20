@@ -226,5 +226,5 @@ storing the information of reconstructed jets.
 
 Inside those files, for each jet, the information of charged hadrons detected inside the jet cone ($\Delta r = \sqrt{(\eta_{\mathrm{ch}}-\eta_{\mathrm{jet}})^2+(\phi_{\mathrm{ch}}-\phi_{\mathrm{jet}})^2} < R =0.4$) is stored in csv format:
 
+<img src="img/jet_file.png" alt="1" width="1000"/>
 
-<img src="img/jet_file.png" alt="1" width="400"/>
