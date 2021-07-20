@@ -5,7 +5,7 @@ Here we generates hard scatterings with JETSCAPE for both pp and PbPb at 5.02 Te
 On the second day, we will use the generated event data and do analysis for jet ovservables. 
 In this example, for each of pp and PbPb, we are generating 250 hard scatterings with 100<$\hat{p}_T$<160 GeV. 
 
-### 1. Start the Docker Container
+### 0.1. Start the Docker Container
 
 If you use ssh to do exercises on a remote computer, you need to create your ssh session with the following command: 
 
@@ -30,7 +30,7 @@ please try `sudo`.
 The option `-p 8888:8888` is necessary to creates a port to access the jupyter notebook, which we use in this hands-on session, from your local web browser.
 
 
-### 2. Get Materials
+### 0.2. Get Materials
 
 
 Inside the docker container, download the school material from git if you have not:
@@ -53,7 +53,7 @@ cd ~/SummerSchool2021/Jul23_Jets
 source ./get_hydro_profile.sh
 ```
 
-### 3. Build JETSCAPE with LBT-tables, MUSIC and iSS
+### 0.3. Build JETSCAPE with LBT-tables, MUSIC and iSS
 
 Please make sure all the external code packages (LBT-tables, MUSIC and iSS) have been
 downloaded in `JETSCAPE/external_packages`. You can check this by the following commands,
@@ -82,7 +82,7 @@ cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON
 make -j4
 ```
 
-### 4. Test Run and Graph Visualization
+### 0.4. Test Run and Graph Visualization
 
 Inside `build`, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
@@ -126,7 +126,7 @@ dot my_test.gv -Tpdf -o outputPDF.pdf
 
 Open `outputPDF.pdf` in `build` with your pdf viewer and find the parton shower history.
 
-### 5. Run pp@5.02 TeV Events
+### 0.5. Run pp@5.02 TeV Events
 
 In `build` directory <b><u>inside the docker</u></b>, execute `runJetscape` with `jetscape_user_PP_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
@@ -142,7 +142,7 @@ Then, extract the final state hadrons by `FinalStateHadrons`
 
 The list of hadrons in the final states of events is stored in `test_out_pp_final_hadrons.dat`
 
-### 6. Run PbPb@5.02 TeV Events (Homework)
+### 0.6. Run PbPb@5.02 TeV Events (Homework)
 In `build` directory <b><u>inside the docker</u></b>, execute `runJetscape` with `jetscape_user_PbPb_PHYS.xml` in `SummerSchool2021/Jul23_Jets/config`
 
 ```
@@ -160,7 +160,7 @@ The list of hadrons in the final states of events is stored in `test_out_pbpb_fi
 
 ## 1. Jet Analysis [Day 2]
 
-### 1. Relaunch the Docker for the session
+### 1.1. Relaunch the Docker for the session
 
 If you use ssh to do exercises on a remote computer, you need to create your ssh session with the following command: 
 
@@ -197,7 +197,7 @@ cd ~/SummerSchool2021/Jul23_Jets
 source ./init.sh
 ```
 
-### 2. Jet Reconstruction
+### 1.2. Jet Reconstruction
 Here using the final state hadron list from JETSCAPE as input, we reconstruct jet by anti-kt algorithm [https://arxiv.org/abs/0802.1189] with jet cone size, R=0.4 by a python code. In the output file from the analysis code, information of jets and charged hadrons inside the jet cone (associated particles) will be stored. 
 
 Please go to `SummerSchool2021/Jul23_Jets/analysis_scripts` directory and find the python script `jet_reconstruction.py`.
@@ -228,7 +228,7 @@ Inside those files, for each jet, the information of charged hadrons detected in
 
 <img src="img/jet_file.png" alt="1" width="1000"/>
 
-### 3. Analysis (with Jupyter Notebook)
+### 1.3. Analysis (with Jupyter Notebook)
 
 If you have already launched any jupyter notebooks outside the docker, please close them all first! Then, launch jupyter notebook in `SummerSchool2021/Jul23_Jets/notebooks` inside the docker contain with the following command,
 
@@ -247,4 +247,32 @@ Then please open `jet_analysis.ipynb`, and follow the instructions.
 <img src="img/notebook2.png" alt="1" width="1000"/>
 
 
+Once you have done, please close jupyter notebook to continue the later part of the workshop. 
+
 ## 2. Hydrodynamic Medium Response [Day 2]
+Here we see the pattern of hydrodynamic flow excited by the jet propagation in the medium by performing simulations of two-stage hydro with liquefier in JETSCAPE. 
+
+### 2.1. Run Twostage Hydro of JETSCAPE
+
+Go to `~/JETSCAPE/build` and perform a simulation with hydrodynamic medium response: 
+
+```
+cd ~/JETSCAPE/build
+./runJetscape ../../SummerSchool2021/Jul23_Jets/config/jetscape_user_twostagehydro_PHYS.xml 
+```
+
+### 2.2. Visualization with Jupyter Notebook
+
+Again, if you have already launched any jupyter notebooks outside the docker, please close them all first! Then, launch jupyter notebook in `SummerSchool2021/Jul23_Jets/notebooks` inside the docker contain with the following command,
+
+```
+cd ~/SummerSchool2021/Jul23_Jets/notebooks
+jupyter-notebook --ip 0.0.0.0 --no-browser
+```
+
+Open the displayed address starting with `http://127.0.0.1:8888/?token=...` in your browser. 
+Then please open `hydro_movie-medium_response.ipynb`, and follow the instructions.
+
+<img src="img/notebook3.png" alt="1" width="1000"/>
+
+
