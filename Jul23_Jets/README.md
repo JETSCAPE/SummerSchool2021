@@ -208,8 +208,20 @@ cd analysis_scripts
 
 Then first, run `jet_reconstruction.py` for pp events:
 ```
-python jet_reconstruction.py -i -o
+python jet_reconstruction.py -i ../../../JETSCAPE/build/test_out_pp_final_hadrons.dat -o ../data/jet_pp.dat
 ```
 
 Option `-i` is used to specify the input file path (final state hadron list)
 and option `-o` is for the output file path 
+
+
+Then please run `jet_reconstruction.py` also for PbPb events:
+```
+python jet_reconstruction.py -i ../../../JETSCAPE/build/test_out_pbpb_final_hadrons.dat -o ../data/jet_pbpb.dat
+```
+
+Once finish running the analysis code, you will find `jet_pp.dat` and `jet_pbpb.dat` 
+in `SummerSchool2021/Jul23_Jets/data`
+storing the information of reconstructed jets.
+
+Inside those files, for each jet, the information of charged hadrons detected inside the jet cone ($\Delta r = \sqrt{(\eta_{\mathrm{ch}}-\eta_{\mathrm{jet}})^2+(\phi_{\mathrm{ch}}-\phi_{\mathrm{jet}})^2} < R =0.4$) is stored:
