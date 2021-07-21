@@ -256,7 +256,7 @@ You can see the change of jet RAA and modification patterns of jet fragmentation
 
 ### <span style="color: orange; ">1.4. Analysis of jets reconstructed with different jet cone size (Optional 2)</span>
 
-With `-r` you can empeloy the jet cone size different from the default one R=0.4 in `jet_reconstruction.py`. For example, if you run `jet_reconstruction.py` in the following way
+With the option `-r` you can empeloy the jet cone size different from the default one R=0.4 in `jet_reconstruction.py`. For example, if you run `jet_reconstruction.py` in the following way
 ```
 python jet_reconstruction.py -r 0.6 -i ../../../JETSCAPE/build/test_out_pp_final_state_hadrons.dat -o ../data/jet_pp_r_0p6.dat
 ```
