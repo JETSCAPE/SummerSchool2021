@@ -1,5 +1,7 @@
 # JETSCAPE Hydrodynamics Session
 
+## Slack Channel: # jul21-jul22-hydro
+
 ## Goals
 
 - Understand how to run JETSCAPE with a few default Fluid dynamics modules
