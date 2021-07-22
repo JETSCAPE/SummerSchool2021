@@ -385,9 +385,9 @@ Format: `# tau(fm)  epsilon_p(ideal) epsilon_p(shear) epsilon_p(full) ecc_2  ecc
 
 * `evolution_all_xyeta_MUSIC.dat`
 
-This file contains the evolution history of fluid cells above T = 130 MeV.
+This file contains the evolution history of fluid cells above T = 140 MeV.
 Every fluid cell includes the following information:
-`itau  ix  iy  ieta  volume[fm^4]  e[GeV/fm^3]  rho_B[1/fm^3]  T[GeV]  mu_B[GeV]  u^x  u^y \tau*u^\eta  T^{\tau t}[GeV/fm^3]  J^\tau[1/fm^3]` 
+`itau  ix  iy  ieta  e[GeV/fm^3]  P[GeV/fm^3]  T[GeV]  u^x  u^y \tau*u^\eta`
 
 ## [Bonus] 5. Produce hadrons from hydrodynamics
 
