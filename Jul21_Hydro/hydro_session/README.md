@@ -383,7 +383,7 @@ This file has the evolution information about the momentum anisotropy,
 average velocity, and average temperature.
 Format: `# tau(fm)  epsilon_p(ideal) epsilon_p(shear) epsilon_p(full) ecc_2  ecc_3  R_Pi  gamma  T[GeV]`
 
-* `evolution_for_movie_xyeta_MUSIC.dat`
+* `evolution_all_xyeta_MUSIC.dat`
 
 This file contains the evolution history of fluid cells above T = 130 MeV.
 Every fluid cell includes the following information:
