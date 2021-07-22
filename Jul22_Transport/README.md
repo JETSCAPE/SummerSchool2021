@@ -265,7 +265,7 @@ Analyzing the output of SMASH
 ----
 
 ```bash
-TRANSPORT_WORKSHOP_FOLDER="~/SummerSchool2021/Jul22_Transport/"
+TRANSPORT_WORKSHOP_FOLDER="/home/jetscape-user/SummerSchool2021/Jul22_Transport/"
 RESULTS_FOLDER="./results/"
 mkdir -p $RESULTS_FOLDER
 
@@ -290,7 +290,7 @@ python ${TRANSPORT_WORKSHOP_FOLDER}/multiplicity_vs_time.py \
 # Analyze collision graph: record destiny of resonances and find detectable one
 cd $RESULTS_FOLDER
 python ${TRANSPORT_WORKSHOP_FOLDER}/collision_graph_analysis.py \
-       ./smash_output/collisions_binary.bin
+       ../smash_output/collisions_binary.bin
 ```
 
 These analyzed results are collected in one folder. Select one question

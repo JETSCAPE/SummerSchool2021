@@ -53,7 +53,7 @@ class HadronHistory():
         v_is_final = np.vectorize(self.is_final)
         final_rho0_ids = rho0_ids[v_is_final(rho0_ids)]
         print(final_rho0_ids.size, " of them are measurable experimentally")
-        p = np.array([self.history[pid]["p"] for pid in final_la1520_ids])
+        p = np.array([self.history[pid]["p"] for pid in final_rho0_ids])
         y = np.array([0.5 * np.log((x[0] + x[3]) / (x[0] - x[3]) ) for x in p])
         y_selector = (np.abs(y) < 1.0)
         print(y_selector.sum(), " of them are at midrapidity")
@@ -247,7 +247,7 @@ def analyze_file(path):
     pthist = {}
     dndy = {}
     cos2phi = {}
- 
+
     with sb.BinaryReader(path) as reader:
         for block in reader:
             if (block['type'] == b'f'):  # end of event
@@ -363,10 +363,10 @@ if __name__ == '__main__':
         f.write("# |y| < 0.5 cut\n")
         f.write("# number of events: %d\n" % nev)
         f.write("# pt[GeV] v2(pt) for pdg  ")
-        for pdg_of_interest in pdgs_of_interest:                                                                                         
+        for pdg_of_interest in pdgs_of_interest:
             f.write("%d " % pdg_of_interest)
         f.write("\n")
-        ptbin_centers = 0.5 * (ptbins[1:] + ptbins[:-1])                                                                                 
+        ptbin_centers = 0.5 * (ptbins[1:] + ptbins[:-1])
         for i, pt in enumerate(ptbin_centers):
             f.write("%5.2f" % pt)
             for pdg_of_interest in pdgs_of_interest:
@@ -378,5 +378,3 @@ if __name__ == '__main__':
 
 
     np.savetxt('destiny_matrix.txt', destiny_matrix_rho0)
-
- 
