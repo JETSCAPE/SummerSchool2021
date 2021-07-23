@@ -99,6 +99,11 @@ Then, lets' Visualize the parton shower. First, run `readerTest` inside `build`
 
 Next, go <b><u>outside the docker</u></b>, install Graphviz (if you do not have). 
 
+If you use Anaconda, you can get Graphviz via the command, 
+```
+conda install graphviz  
+```
+
 For MacOS via Homebrew
 ```
 brew install graphviz
