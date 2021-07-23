@@ -45,6 +45,12 @@ If you have alread downloaded the material, please update to the latest version:
 cd ~/SummerSchool2021
 git pull
 ```
+  
+Please also update JETSCAPE to the latest version:
+```
+cd ~/JETSCAPE
+git pull
+```
 
 Go to `SummerSchool2021/Jul23_Jets` directory and download hydro profile files for this session:
 
