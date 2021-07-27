@@ -1,0 +1,31 @@
+Logging:
+    default: INFO
+
+General:
+    Modus:  Afterburner   # Dummy, but some value has to be present
+    Time_Step_Mode: Fixed
+    Delta_Time:    0.5
+    End_Time:      100.0  # Reset from the JetScape xml config
+    Randomseed:    -1     # Reset from the JetScape xml config
+    Nevents:       1      # Dummy
+
+#Collision_Term:
+#    Strings: False
+#    No_Collisions: False
+#    Switches on/off different 2-to-2 reactions
+#    Included_2to2: ["Elastic", "NN_to_NR", "NN_to_DR", "KN_to_KN", "KN_to_KDelta", "Strangeness_exchange", "NNbar"]
+
+Output:
+    Output_Interval:  1.0
+    Particles:
+        Format: ["Oscar2013", "Binary"]
+        Only_Final: No
+    Collisions:
+        Format: ["Oscar2013", "Binary"]
+
+# This section is dummy
+List:
+    File_Directory: .
+    File_Prefix: "dummy"
+    Shift_Id: 0
+    Start_Time: 0.0

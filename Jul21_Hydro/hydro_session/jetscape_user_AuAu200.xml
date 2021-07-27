@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<jetscape>
+    <!-- General settings -->
+    <nEvents> 1 </nEvents>
+
+    <!-- fix the random seed -->
+    <Random>
+        <seed>23</seed>
+    </Random>
+
+    <!-- Inital State Module  -->
+    <IS>
+        <!-- set boost invariant simulation -->
+        <grid_max_z> 0.0 </grid_max_z>
+
+        <!-- Initial condition -->
+        <Trento>
+            <!-- sqrts is in GeV, cross-section is in mb -->
+            <!-- Here is an example for 0-10% Au+Au collisions at 200 GeV -->
+            <PhysicsInputs  projectile='Au'
+                    target='Au'
+                    sqrts='200.'
+                    cross-section='4.2'
+                    normalization='5.9'>
+            </PhysicsInputs>
+            <CutInputs  centrality-low='0'
+                  centrality-high='10'>
+            </CutInputs>
+        </Trento>
+    </IS>
+
+    <!--Preequilibrium Dynamics Module -->
+    <Preequilibrium>
+        <NullPreDynamics> </NullPreDynamics>
+    </Preequilibrium>
+
+    <!-- Hydro  Module  -->
+    <Hydro>
+        <MUSIC>
+            <freezeout_temperature>0.150</freezeout_temperature>
+        </MUSIC>
+    </Hydro>
+
+</jetscape>

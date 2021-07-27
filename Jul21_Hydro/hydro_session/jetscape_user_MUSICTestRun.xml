@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<jetscape>
+    <!-- General settings -->
+    <nEvents> 1 </nEvents>
+
+    <!-- fix the random seed -->
+    <Random>
+        <seed>23</seed>
+    </Random>
+
+    <!-- Inital State Module  -->
+    <IS>
+        <!-- set boost invariant simulation -->
+        <grid_max_z> 0.0 </grid_max_z>
+
+        <!-- Initial condition -->
+        <Trento> </Trento>
+    </IS>
+
+    <!--Preequilibrium Dynamics Module -->
+    <Preequilibrium>
+        <NullPreDynamics> </NullPreDynamics>
+    </Preequilibrium>
+
+    <!-- Hydro  Module  -->
+    <Hydro>
+        <MUSIC>
+            <freezeout_temperature>0.150</freezeout_temperature>
+        </MUSIC>
+    </Hydro>
+</jetscape>
