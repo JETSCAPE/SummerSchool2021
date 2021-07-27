@@ -5,6 +5,7 @@
 1. Clone the repository inside the JETSCAPE docker container.
 >git clone https://github.com/JETSCAPE/SummerSchool2021.git
 
+> docker start -ai myJetscape
 Run `jupyter notebook`
 
 2. Open *[SimpleGaussianProcess.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleGaussianProcess.ipynb)*. In this exercises, we will introduce the idea of a Gaussian Process emulator (GP). It will be an essential ingredient for the Bayesian analysis of complex model. We will spend about 30 mins on this topic.
@@ -20,14 +21,23 @@ Run `jupyter notebook`
 <img src="https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleBulk/plots/Posterior_of_eta_s.png" width="300"  />
  </p>
 
-# July 29 (1 hour) JETSCAPE Bayesian Example.
+# July 29 (1.5 hour) JETSCAPE Bayesian Example.
 ## Relevent Notebook
 
 
 ### BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb
 
-1. Clone the repository inside the JETSCAPE docker container.
+1. Clone the repository inside the JETSCAPE-docker folder. (You can skip this and go to the next step if you have already cloned it!)
 >git clone https://github.com/JETSCAPE/SummerSchool2021.git
+
+2. Get the most recent version of the repo.
+>git pull origin master
+
+3. Start the docker container 
+> start -ai myJetscape
+
+4. Open the jupyter notebook
+> jupyter-notebook --ip 0.0.0.0 --no-browser
 
 Run `jupyter notebook`
 
