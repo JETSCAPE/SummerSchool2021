@@ -28,18 +28,40 @@ Run `jupyter notebook`
 ### BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb
 
 1. Clone the repository inside the JETSCAPE-docker folder. (You can skip this and go to the next step if you have already cloned it!)
->git clone https://github.com/JETSCAPE/SummerSchool2021.git
+````
+git clone https://github.com/JETSCAPE/SummerSchool2021.git
+````
 
 2. Get the most recent version of the repo.
->git pull origin master
+> Go inside SummerSchool2021 folder
+
+````
+git pull origin master
+````
 
 3. Start the docker container 
-> start -ai myJetscape
+````
+docker start -ai myJetscape
+````
 
-4. Open the jupyter notebook
-> jupyter-notebook --ip 0.0.0.0 --no-browser
+4. Update the seaborn package to a newer version ( If you did this already as in the instructions [here](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md) you can skip this step]
+````
+pip3 install --upgrade seaborn==0.11.0
+````
 
-Run `jupyter notebook`
+5. Open the jupyter notebook
+
+````
+jupyter-notebook --ip 0.0.0.0 --no-browser
+````
+
+There will be some printouts, and at the end there will be a URL like
+
+````
+http://127.0.0.1:8888/?token=....
+````
+
+Copy the full address (including the token) into a web browser, and verify that you can see a jupyter notebook page with directories.
 
 Open *[BayesianParameterEstimationCodeForRelativisticHeavyIonCollisions-JS21.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesianParameterEstimationForRelativisticHeavyIonPhysics-JS21.ipynb)*. In this session we will do a full Bayesian parameter extraction for one of the JETSCAPE relativistic heavy ion collision models using pre-generated simulation data and with **peseudo experimental data**. The peseudo experimental data is generated from our simulation model for known set of model parameters. We will compare the extracted model parameter values with the **true model parameters** to validate the Baysian work flow. After validation the final step would be the Bayesian parameter extraction with the real experimental data. We leave it as an exercise for the interested participants. 
 
