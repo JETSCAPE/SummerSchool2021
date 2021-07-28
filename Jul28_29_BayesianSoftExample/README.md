@@ -2,17 +2,48 @@
 ## Relevent Notebook
 
 ### SimpleGaussianProcess.ipynb and BayesForSimpleModel.ipynb
-1. Clone the repository inside the JETSCAPE docker container.
->git clone https://github.com/JETSCAPE/SummerSchool2021.git
 
-> docker start -ai myJetscape
-Run `jupyter notebook`
+1. Clone the repository inside the JETSCAPE-docker folder. (You can skip this and go to the next step if you have already cloned it!)
+````
+git clone https://github.com/JETSCAPE/SummerSchool2021.git
+````
 
-2. Open *[SimpleGaussianProcess.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleGaussianProcess.ipynb)*. In this exercises, we will introduce the idea of a Gaussian Process emulator (GP). It will be an essential ingredient for the Bayesian analysis of complex model. We will spend about 30 mins on this topic.
+2. Get the most recent version of the repo.
+> Go inside SummerSchool2021 folder
+
+````
+git pull origin master
+````
+
+3. Start the docker container 
+````
+docker start -ai myJetscape
+````
+
+4. Update the seaborn package to a newer version ( If you did this already as in the instructions [here](https://github.com/JETSCAPE/SummerSchool2021/blob/master/README.md) you can skip this step]
+````
+pip3 install --upgrade seaborn==0.11.0
+````
+
+5. Open the jupyter notebook
+
+````
+jupyter-notebook --ip 0.0.0.0 --no-browser
+````
+
+There will be some printouts, and at the end there will be a URL like
+
+````
+http://127.0.0.1:8888/?token=....
+````
+
+Copy the full address (including the token) into a web browser, and verify that you can see a jupyter notebook page with directories.
+
+Open *[SimpleGaussianProcess.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/SimpleGaussianProcess.ipynb)*. In this exercises, we will introduce the idea of a Gaussian Process emulator (GP). It will be an essential ingredient for the Bayesian analysis of complex model. We will spend about 30 mins on this topic.
 
 
 
-3. Open *[BayesForSimpleModel.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesForSimpleModel.ipynb)*. In this exercises, we will apply the emulator-assisted Bayesian analysis to a toy model of bulk physics. Assuming a simple response of anisotropy flow $v_2$ to the initial QGP eccentricity and an effective shear-viscosity, we will see the role of model sensitivity, uncertainty propagation, and parameter maginalization on the extraction of the temperature dependent shear viscosity. This example is also a warm-up for the following full example.
+Open *[BayesForSimpleModel.ipynb](https://github.com/JETSCAPE/SummerSchool2021/blob/master/Jul28_29_BayesianSoftExample/BayesForSimpleModel.ipynb)*. In this exercises, we will apply the emulator-assisted Bayesian analysis to a toy model of bulk physics. Assuming a simple response of anisotropy flow $v_2$ to the initial QGP eccentricity and an effective shear-viscosity, we will see the role of model sensitivity, uncertainty propagation, and parameter maginalization on the extraction of the temperature dependent shear viscosity. This example is also a warm-up for the following full example.
 
 > Sample results: prior and posterior for temperature dependent QGP specefic Shear viscosity using a **toy model** with **peseudo experimental data**.
 <p>
